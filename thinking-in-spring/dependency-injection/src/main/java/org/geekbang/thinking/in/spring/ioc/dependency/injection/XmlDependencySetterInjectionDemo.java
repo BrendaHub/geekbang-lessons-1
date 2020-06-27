@@ -16,8 +16,10 @@
  */
 package org.geekbang.thinking.in.spring.ioc.dependency.injection;
 
+import org.geekbang.thinking.in.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.util.StringUtils;
 
 /**
  * 基于 XML 资源的依赖 Setter 方法注入示例
@@ -27,7 +29,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
  */
 public class XmlDependencySetterInjectionDemo {
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
 
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 
@@ -40,5 +42,19 @@ public class XmlDependencySetterInjectionDemo {
         UserHolder userHolder = beanFactory.getBean(UserHolder.class);
         System.out.println(userHolder);
 
+    }
+
+    public static void main(String[] args) {
+        // 创建一个DefaultListableBeanFactory 的容器
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        // 通过 BeanFactory创建一个XML加载的类注入器
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
+        String xmlResoucesPath = "classpath:/META-INF/dependency-setter-injection.xml";
+        xmlBeanDefinitionReader.loadBeanDefinitions(xmlResoucesPath);
+        // 到此BeanFactory 里已经注册上了xml bean的加载器
+
+        // 接下来就可以通过BeanFactory进行bean的依赖查找
+        User user = beanFactory.getBean(User.class);
+        System.out.printf("user is %s %n", user);
     }
 }

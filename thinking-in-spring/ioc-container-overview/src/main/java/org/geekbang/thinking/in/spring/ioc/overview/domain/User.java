@@ -27,6 +27,7 @@ import java.beans.PropertyChangeListener;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 /**
  * 用户类
@@ -45,6 +46,8 @@ public class User implements BeanNameAware {
     private City[] workCities;
 
     private List<City> lifeCities;
+
+    private Set<City> goedCitys;
 
     private Resource configFileLocation;
 
@@ -153,6 +156,30 @@ public class User implements BeanNameAware {
         this.contextAsText = contextAsText;
     }
 
+    public Set<City> getGoedCitys() {
+        return goedCitys;
+    }
+
+    public void setGoedCitys(Set<City> goedCitys) {
+        this.goedCitys = goedCitys;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", city=" + city +
+//                ", workCities=" + Arrays.toString(workCities) +
+//                ", lifeCities=" + lifeCities +
+//                ", configFileLocation=" + configFileLocation +
+//                ", company=" + company +
+//                ", context=" + context +
+//                ", contextAsText='" + contextAsText + '\'' +
+//                ", beanName='" + beanName + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -161,6 +188,7 @@ public class User implements BeanNameAware {
                 ", city=" + city +
                 ", workCities=" + Arrays.toString(workCities) +
                 ", lifeCities=" + lifeCities +
+                ", goedCitys=" + goedCitys +
                 ", configFileLocation=" + configFileLocation +
                 ", company=" + company +
                 ", context=" + context +

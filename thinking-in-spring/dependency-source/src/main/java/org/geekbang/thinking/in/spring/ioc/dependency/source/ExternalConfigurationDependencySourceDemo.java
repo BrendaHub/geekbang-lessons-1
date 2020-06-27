@@ -29,7 +29,7 @@ import org.springframework.core.io.Resource;
  * @since
  */
 @Configuration
-@PropertySource(value = "META-INF/default.properties",encoding="UTF-8")
+@PropertySource(value = "META-INF/default.properties", encoding = "UTF-8")
 public class ExternalConfigurationDependencySourceDemo {
 
     @Value("${user.id:-1}")

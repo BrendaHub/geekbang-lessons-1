@@ -26,5 +26,7 @@ public enum City {
 
     BEIJING,
     HANGZHOU,
-    SHANGHAI
+    SHANGHAI,
+    JIUJIANG,
+    TIANJING,
 }

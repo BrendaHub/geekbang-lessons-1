@@ -36,6 +36,8 @@ public class AnnotationDependencyMethodInjectionDemo {
 
     private UserHolder userHolder2;
 
+    private UserHolder userHolder3;
+
     @Autowired
     public void init1(UserHolder userHolder) {
         this.userHolder = userHolder;
@@ -49,6 +51,7 @@ public class AnnotationDependencyMethodInjectionDemo {
     @Bean
     public UserHolder userHolder(User user) {
         return new UserHolder(user);
+//        this.userHolder3 = new UserHolder(user);
     }
 
     public static void main(String[] args) {
@@ -76,6 +79,8 @@ public class AnnotationDependencyMethodInjectionDemo {
         System.out.println(demo.userHolder2);
 
         System.out.println(userHolder == demo.userHolder2);
+        System.out.println(demo.userHolder);
+        System.out.println(userHolder == demo.userHolder);
 
 
         // 显示地关闭 Spring 应用上下文
