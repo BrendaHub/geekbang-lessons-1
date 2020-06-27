@@ -35,7 +35,6 @@ public class AnnotationDependencyConstructorInjectionDemo {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         // 注册 Configuration Class（配置类）
         applicationContext.register(AnnotationDependencyConstructorInjectionDemo.class);
-
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(applicationContext);
 
         String xmlResourcePath = "classpath:/META-INF/dependency-lookup-context.xml";
